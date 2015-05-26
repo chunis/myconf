@@ -2,40 +2,30 @@
 colorscheme desert
 "colorscheme darkblue
 
+set ai
+set backspace=indent,eol,start
+set background=dark
+set hidden
+set switchbuf=useopen
 set visualbell
+set hlsearch
+set incsearch
+set ruler
 "set si
 "set ignorecase
 "set infercase
-
-
-filetype plugin indent on
-syntax on
-
-set hidden
-set switchbuf=useopen
-set incsearch
-set hlsearch
-set ruler
-set backspace=indent,eol,start
-set background=dark
-
 "set sw=4
 "set tabstop=4
-set ai
-":filetype on
-:autocmd FileType c,cpp :set cindent
-":autocmd FileType sh :set filetype=awk
+set encoding=utf-8
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,ucs-bom,cp936
 
-":autocmd VimEnter *MIB.txt :set filetype=mib
-:autocmd BufReadPre *MIB.txt :set filetype=mib
-:autocmd BufNewFile *.c 0r ~/.vim/templates/c.tpl
-:autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp.tpl
-:autocmd BufNewFile *.pl 0r ~/.vim/templates/pl.tpl
-:autocmd BufNewFile *.lua 0r ~/.vim/templates/lua.tpl
-":autocmd BufNewFile,BufRead *.rb :set softtabstop=2 | :set shiftwidth=2 | :set softtabstop=2 | :set expandtab
-":autocmd FileType ruby :set softtabstop=2 | :set shiftwidth=2 | :softtabstop=2 | :set expandtab
 
-:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+"filetype plugin indent on
+"filetype on
+filetype indent on
+syntax on
+
 
 "ab kkk &nbsp;
 ab #i #include
@@ -46,8 +36,26 @@ ab dmn Demonstrate
 "ab myret movl	%ebp, %esppopl	%ebpret
 "ab mypush pushl   %ebpmovl	%esp,  %ebp
 
-"map _ A        //:~ Added by denny<Esc>
+
+:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+"map _ A        //:~ Added by chunis<Esc>
 "map + gI#<Esc>j
+
+
+:autocmd FileType c,cpp :set cindent
+":autocmd FileType sh :set filetype=awk
+
+":autocmd VimEnter *MIB.txt :set filetype=mib
+":autocmd BufReadPre *MIB.txt :set filetype=mib
+:autocmd BufNewFile *.c 0r ~/.vim/templates/c.tpl
+:autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp.tpl
+:autocmd BufNewFile *.lua 0r ~/.vim/templates/lua.tpl
+:autocmd BufNewFile *.pl 0r ~/.vim/templates/pl.tpl
+:autocmd BufNewFile *.py 0r ~/.vim/templates/py.tpl
+:autocmd BufNewFile *.sh 0r ~/.vim/templates/sh.tpl
+":autocmd BufNewFile,BufRead *.rb :set softtabstop=2 | :set shiftwidth=2 | :set softtabstop=2 | :set expandtab
+":autocmd FileType ruby :set softtabstop=2 | :set shiftwidth=2 | :softtabstop=2 | :set expandtab
+
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -60,9 +68,5 @@ if has("autocmd")
   \ endif
 endif
 
-set encoding=utf-8
-let &termencoding=&encoding
-set fileencodings=utf-8,gbk,ucs-bom,cp936
-
 "for golang
-set rtp+=/home/chunis/hg/go/misc/vim
+"set rtp+=/home/chunis/go/misc/vim

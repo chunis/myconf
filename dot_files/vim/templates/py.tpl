@@ -1,4 +1,4 @@
-#!/usr/bin/lua
+#!/usr/bin/python
 
 # Chunis Deng (chunchengfh@gmail.com)
 

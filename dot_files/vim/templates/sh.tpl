@@ -1,4 +1,4 @@
-#!/usr/bin/lua
+#!/bin/sh
 
 # Chunis Deng (chunchengfh@gmail.com)
 
