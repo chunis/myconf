@@ -1,6 +1,6 @@
 #!/bin/sh
 
-myconf=~/myconf/dot_files
+myconf=~/.myconf/dot_files
 
 [ -z "$PS1" ] && return
 
@@ -11,3 +11,4 @@ source $myconf/bash_myconf
 source $myconf/bash_alias
 source $myconf/myalias
 source $myconf/bash_myfunc
+export PATH=~/.myconf/bin:$PATH
