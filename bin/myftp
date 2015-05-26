@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+# $1: ftp username
+usr=$1
+[ "$usr" = "" ] && usr=nx
+
+myip=$(ifconfig | /bin/grep 192.168 | sed 's/.*inet addr:\(192.168.1.[0-9]*\) .*/\1/')
+for x in `seq 2 20`
+do
+	if [ 192.168.1.$x != $myip ]; then
+		#./open_ftp.py 192.168.1.$x $usr > /dev/null &
+		open_ftp.py 192.168.1.$x $usr &
+	fi
+done

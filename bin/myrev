@@ -1,0 +1,11 @@
+#! /usr/bin/awk -f
+
+# do things the same as command 'rev'
+
+{ 	len = length($0)
+	split( $0, array, "")
+	for(i=len; i>=1; i--)
+		printf array[i]
+	printf "\n"
+}
+

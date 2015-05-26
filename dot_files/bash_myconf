@@ -1,0 +1,51 @@
+#!/bin/sh
+
+#echo 'hello, denny! ^_^'
+[ -f /etc/bashrc ] && . /etc/bashrc
+[ -f /etc/bash_completion ] && . /etc/bash_completion
+
+export HISTCONTROL=ignoredups
+export HISTFILESIZE=8000
+export PATH=$HOME/.rbenv/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH:~/bin
+
+set -o noclobber
+set +o ignoreeof
+#shopt -s cdspell
+shopt -s checkwinsize
+
+name=arch
+[ `hostname` = debian ] && name=debian
+PS1='\[\e]2;\u@\H \w\a\e[32;1m\][$name \W]\\$ \[\e[0m\]'
+
+##eval `dircolors ~/.coloursrc`
+#eval `dircolors ~/.coloursrc2`
+
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    #alias dir='ls --color=auto --format=vertical'
+    #alias vdir='ls --color=auto --format=long'
+fi
+
+#---------------------- SPECIAL CONFIG -------------------------------------
+
+#alias rdcode='export CSCOPE_DB=/home2/denny/cscope/cscope.out'
+#alias rdkernel_simple='export CSCOPE_DB=/home/denny/sunny/cscope/linux-2.6.23.14-simple/cscope.out'
+
+#export http_proxy=http://172.17.151.8:8080
+#export ftp_proxy=http://172.17.151.8:8080
+#alias proxy='export http_proxy=http://cnh82201:Philips1@emea.nics.nxp.com:8080'
+#alias ftp_proxy='export ftp_proxy=http://cnh82201:Philips1@emea.nics.nxp.com:8080'
+
+#alias cdn='cd /home2/denny'
+#alias mylftp='lftp denny:123456@172.17.145.116'
+#alias cvs8='cvs -d :pserver:denny@172.17.144.8:/usr/local/dnicvs'
+
+#---------------------- SOURCE FILES -------------------------------------
+
+[ -f ~/.bash_alias ] && . ~/.bash_alias
+[ -f ~/.bash_myfunc ] && . ~/.bash_myfunc

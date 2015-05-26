@@ -1,0 +1,68 @@
+
+colorscheme desert
+"colorscheme darkblue
+
+set visualbell
+"set si
+"set ignorecase
+"set infercase
+
+
+filetype plugin indent on
+syntax on
+
+set hidden
+set switchbuf=useopen
+set incsearch
+set hlsearch
+set ruler
+set backspace=indent,eol,start
+set background=dark
+
+"set sw=4
+"set tabstop=4
+set ai
+":filetype on
+:autocmd FileType c,cpp :set cindent
+":autocmd FileType sh :set filetype=awk
+
+":autocmd VimEnter *MIB.txt :set filetype=mib
+:autocmd BufReadPre *MIB.txt :set filetype=mib
+:autocmd BufNewFile *.c 0r ~/.vim/templates/c.tpl
+:autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp.tpl
+:autocmd BufNewFile *.pl 0r ~/.vim/templates/pl.tpl
+:autocmd BufNewFile *.lua 0r ~/.vim/templates/lua.tpl
+":autocmd BufNewFile,BufRead *.rb :set softtabstop=2 | :set shiftwidth=2 | :set softtabstop=2 | :set expandtab
+":autocmd FileType ruby :set softtabstop=2 | :set shiftwidth=2 | :softtabstop=2 | :set expandtab
+
+:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+
+"ab kkk &nbsp;
+ab #i #include
+ab #d #define
+ab #c /* * * * Chunis Deng @ 2012.03.06 */
+ab dmn Demonstrate
+"ab myexit movl	$1, %eaxint     $0x80
+"ab myret movl	%ebp, %esppopl	%ebpret
+"ab mypush pushl   %ebpmovl	%esp,  %ebp
+
+"map _ A        //:~ Added by denny<Esc>
+"map + gI#<Esc>j
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  " In text files, always limit the width of text to 78 characters
+  autocmd BufRead *.txt set tw=78
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+endif
+
+set encoding=utf-8
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,ucs-bom,cp936
+
+"for golang
+set rtp+=/home/chunis/hg/go/misc/vim

@@ -1,0 +1,89 @@
+#!/bin/sh
+
+asld ()
+{
+	bsname=${1/.s/}
+	as -o ${bsname}.o $1 && ld -o ${bsname} ${bsname}.o && rm -f ${bsname}.o
+}
+
+gasld ()
+{
+	bsname=${1/.s/}
+	as --gstabs -o ${bsname}.o $1 && ld -o ${bsname} ${bsname}.o && rm -f ${bsname}.o
+}
+
+vt ()
+{
+	line=$(echo $1| awk -F: '{ print $2 }')
+	file=$(echo $1| awk -F: '{ print $1 }')
+	vi +$line $file
+}
+
+mygcc()
+{
+	obj=$(echo $1 | sed 's/\.c//')
+	gcc -Wall -o $obj ${obj}.c && ./$obj
+}
+
+ldoce5()
+{
+	cd /home/chunis/ldoce5/
+	exec=aoss ./run-ldoce5.sh &
+}
+
+newip()
+{
+	if=$1
+	[ "$if" = "" ] && if=eth0
+	pid=`ps aux | grep [d]hcp | awk '{print $2}'`
+	[ "$pid" != "" ] && sudo kill $pid
+	sleep 2
+	sudo dhcpcd $if
+}
+
+myproxy()
+{
+	local x
+	[ `hostname` = debian ] || x=2	# debian is python, arch is python2
+	#cd /home/chunis/sunny/myarch/build/tmp/goagent-1.7.9/local
+	#cd /home/chunis/lithon/myarch/tool/goagent-1.8.6/local
+	#cd /home/chunis/lithon/myarch/tool/goagent-goagent-b881730/local
+	cd /home/chunis/lithon/myarch/tool/goagent-goagent-98eca96/local
+	#cd /home/chunis/lithon/myarch/tool/goagent-goagent-0772f4e/local
+	python$x proxy.py
+}
+
+mylocate()
+{
+	local dbfile=/tmp/mysfind.db
+	rm -f $dbfile
+	locate -i -d /var/lib/mlocate/books.db $1 > $dbfile
+	#/home/chunis/x/spfind/spfind.sh &
+	( cd /home/chunis/myproj/spfind && ./spfind.py & )
+}
+
+pk()
+{
+	#grep $1 `ps aux`
+	ps aux | /bin/grep $1 -
+}
+
+mygrep()
+{
+	grep $1 `find . -name '*.[chSs]'`
+}
+
+# rm the current directory
+cdd()
+{
+	dir=$(basename `pwd`)
+	cd ..
+	rmdir $dir
+}
+
+# mkdir a dir and cd to it
+mkdirc()
+{
+	mkdir $1
+	cd $1
+}

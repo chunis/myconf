@@ -1,0 +1,11 @@
+.bash_alias
+.bash_myconf
+.bash_myfunc
+.bash_profile
+.bashrc
+.gdbinit
+.gitconfig
+.hgrc
+.vim
+.vimrc
+.xprofile

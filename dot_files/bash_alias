@@ -1,0 +1,47 @@
+#!/bin/sh
+
+alias whs=whereis
+alias was=whatis
+alias ehco=echo
+alias chx='chmod +x'
+alias grep='grep --color -n'
+alias grepr='grep --color -nr'
+alias vi=vim
+alias iv=vi
+
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+
+alias ls='ls --color '
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+#alias l=ls
+#alias ls='ls '
+alias s=ls
+alias sl=ls
+
+alias cs='eval `dircolors ~/.coloursrc2`'
+alias cs1='eval `dircolors ~/.coloursrc`'
+
+alias d=cd
+alias scd=cd
+alias c=cd
+alias cd='cd '
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias ..='..'
+alias ...='../..'
+alias ....='../../..'
+alias .....='../../../..'
+alias ......='../../../../..'
+
+alias locate='locate -i'
+
+##################### special alias ##############################
+#alias rem='make clean && make dep && make'
+alias mymake='make clean && make qemu'
+
+[ -f ~/bin/myalias ] && . ~/bin/myalias
