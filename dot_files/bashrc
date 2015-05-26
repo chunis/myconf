@@ -1,13 +1,13 @@
 #!/bin/sh
 
+myconf=~/myconf/dot_files
+
 [ -z "$PS1" ] && return
 
-[ -f ~/.bash_myconf ] && . ~/.bash_myconf
+[ -f /etc/bashrc ] && . /etc/bashrc
+[ -f /etc/bash_completion ] && . /etc/bash_completion
 
-export PERL_LOCAL_LIB_ROOT="/home/chunis/perl5";
-export PERL_MB_OPT="--install_base /home/chunis/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/home/chunis/perl5";
-export PERL5LIB="/home/chunis/perl5/lib/perl5/i486-linux-gnu-thread-multi-64int:/home/chunis/perl5/lib/perl5";
-export PATH="/home/chunis/perl5/bin:$PATH";
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source $myconf/bash_myconf
+source $myconf/bash_alias
+source $myconf/myalias
+source $myconf/bash_myfunc

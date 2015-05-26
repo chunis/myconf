@@ -1,41 +1,48 @@
-#!/bin/sh
 
-alias lf='ls -F %1 | /bin/grep "^-"'
-#alias pk='ps aux | grep'
-alias vitips='vi ~/mydoc/files/tips'
-alias mynotes='vi ~/mydoc/files/newnotes'
-alias myssh='ssh -l chunchengfh 216.194.70.6'
-alias cds='cd ~/x/chunix/sid-chunix'
-alias cdo='cd /home/chunis/x/orange/chapter6/a'
-alias bbc='mplayer mms://livewmstream-ws.bbc.co.uk.edgestreams.net/reflector:38972 >/dev/null 2>&1'
-alias mybx='make clean && make && /usr/bin/bochs -q -f hd.bxrc'
+#---------------------- COMMON CONFIG --------------------------------
+
 alias mywc='wc -l `find . -name "*.[chsS]"`'
 alias myawk="awk '{ sum += \$1 }; END { print sum }'"
 alias mywiki="(cd ~/lithon/excodes/moin-1.9.6/ && ./wikiserver.py)"
 alias myfind='find . -iname'
 alias mydiff='diff -r --ignore-trailing-space'
-alias mykylin='echo kvm -drive file=kylin-V5.img -m 1536 -localtime -net nic,macaddr=00:00:00:00:00:01 -net tap,ifname=tap0,script=no,downscript=no -vga vmware'
-#alias my_rename_itpub_book="/bin/ls \[itpub.* | while read line; do y=`echo $line | sed 's/.itpub.net.//'`; mv "$line" "$y"; done"
+alias my_rename_itpub_book="/bin/ls \[itpub.* | while read line; do y=`echo $line | sed 's/.itpub.net.//'`; mv "$line" "$y"; done"
+alias myupdatedb='updatedb -U /home/chunis/ws/books -o /var/lib/mlocate/books.db' # root only!
 
-#alias myupdatedb='updatedb -U /home/chunis/ws/books -o /var/lib/mlocate/books.db' # root only!
-alias rlinux0.11='(cd /home/chunis/hg/linux-0.11-devel-060625 && qemu -fda bootimage-0.11-fd -hda hdc-0.11-new.img)'
+#alias cdn='cd /home/chunis/new'
+alias cds='cd ~/x/chunix/sid-chunix'
+alias cdo='cd /home/chunis/x/orange/chapter6/a'
 
-# for git
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-
-# for go
-export GOROOT=$HOME/hg/go
-export GOBIN=$GOROOT/bin
-export GOARCH=amd64
-export GOOS=linux
-export PATH=$GOBIN:$PATH
-export GOPATH=$GOROOT
-
+#alias rdcode='export CSCOPE_DB=/home/chunis/cscope/cscope.out'
+#alias rdkernel_simple='export CSCOPE_DB=/home/chunis/cscope/linux-2.6.23.14-simple/cscope.out'
 alias mc='make cleanall && make grub-sfs'
 alias mm='make grub-sfs'
 alias mr='qemu -m 32 -serial mon:stdio -fda floppy.img -hdb hd.img'
+alias mybx='make clean && make && /usr/bin/bochs -q -f hd.bxrc'
+#alias rem='make clean && make dep && make'
+alias mymake='make clean && make qemu'
+alias rlinux0.11='(cd /home/chunis/hg/linux-0.11-devel-060625 && qemu -fda bootimage-0.11-fd -hda hdc-0.11-new.img)'
 
+alias pk='ps aux | /bin/grep'
+alias vitips='vi ~/mydoc/files/tips'
+alias mynotes='vi ~/mydoc/files/newnotes'
+#alias myssh='ssh -l chunchengfh 216.194.70.6'
+#alias mylftp='lftp chunis:123456@172.17.145.116'
+alias bbc='mplayer mms://livewmstream-ws.bbc.co.uk.edgestreams.net/reflector:38972 >/dev/null 2>&1'
+
+
+#---------------------- SPECIAL CONFIG -------------------------------
+
+#export http_proxy=http://172.17.151.8:8080
+#export ftp_proxy=http://172.17.151.8:8080
+#alias proxy='export http_proxy=http://172.17.151.8:8080'
+#alias ftp_proxy='export ftp_proxy=http://172.17.151.8:8080'
+#alias unproxy='export http_proxy='
+#alias unftp_proxy='export ftp_proxy='
+
+
+#---------------------- USELESS CONFIG -------------------------------
+
+#alias cs='eval `dircolors ~/.coloursrc2`'
+#alias cs1='eval `dircolors ~/.coloursrc`'
+#alias mykylin='echo kvm -drive file=kylin-V5.img -m 1536 -localtime -net nic,macaddr=00:00:00:00:00:01 -net tap,ifname=tap0,script=no,downscript=no -vga vmware'

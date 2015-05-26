@@ -3,13 +3,3 @@
 #
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-#export DM_HOME=/kylin/dm6
-#export LD_LIBRARY_PATH=/kylin/dm6/bin:/tmp/DMInstall/source/jdk/jre/lib/i386/server:/tmp/DMInstall/source/jdk/jre/lib/i386:/tmp/DMInstall/source/jdk/jre/../lib/i386
-#KINGBASE_HOME=/kylin/kingbase/ES/V7
-#PATH=$KINGBASE_HOME/bin:$PATH
-#export KINGBASE_HOME PATH
-#source ~/.profile
-
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"

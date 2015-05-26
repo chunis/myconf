@@ -74,7 +74,7 @@ mygrep()
 }
 
 # rm the current directory
-cdd()
+cdrd()
 {
 	dir=$(basename `pwd`)
 	cd ..
