@@ -87,3 +87,10 @@ mkdirc()
 	mkdir $1
 	cd $1
 }
+
+# compile and run java code
+j()
+{
+       class=${1%%.java}
+       javac $1 && java $class
+}

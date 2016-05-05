@@ -10,6 +10,8 @@ alias grepr='grep --color -nr'
 alias locate='locate -i'
 alias vi=vim
 alias iv=vi
+alias es=emacs
+alias en='emacs -nw'
 
 alias rm='rm -i'
 alias mv='mv -i'
@@ -22,6 +24,7 @@ alias l='ls -CF'
 #alias l=ls
 alias s=ls
 alias sl=ls
+alias lls=ls
 
 alias d=cd
 alias scd=cd
