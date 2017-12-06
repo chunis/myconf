@@ -1,7 +1,7 @@
 #!/bin/sh
 
 myconf=~/.myconf
-replace_files="myconf bashrc gdbinit gitconfig hgrc vim vimrc xprofile"
+replace_files="myconf bashrc gdbinit gitconfig hgrc vim vimrc xprofile tmux.conf"
 date=`date +%Y%m%d`
 
 echo "Backup config files and create soft link for them..."
