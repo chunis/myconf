@@ -11,4 +11,5 @@ source $myconf/bash_myconf
 source $myconf/bash_alias
 source $myconf/myalias
 source $myconf/bash_myfunc
+source $myconf/z.sh
 export PATH=~/.myconf/bin:$PATH
