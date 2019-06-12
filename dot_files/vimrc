@@ -23,9 +23,9 @@ set t_vb=  "disable blinking at the first/last line of the file
 set modeline
 
 
-"filetype plugin indent on
+filetype plugin indent on
 "filetype on
-filetype indent on
+"filetype indent on
 syntax on
 
 
@@ -55,8 +55,13 @@ ab dmn Demonstrate
 :autocmd BufNewFile *.pl 0r ~/.vim/templates/pl.tpl
 :autocmd BufNewFile *.py 0r ~/.vim/templates/py.tpl
 :autocmd BufNewFile *.sh 0r ~/.vim/templates/sh.tpl
+:autocmd BufNewFile *.js 0r ~/.vim/templates/js.tpl
 ":autocmd BufNewFile,BufRead *.rb :set softtabstop=2 | :set shiftwidth=2 | :set softtabstop=2 | :set expandtab
 ":autocmd FileType ruby :set softtabstop=2 | :set shiftwidth=2 | :softtabstop=2 | :set expandtab
+:autocmd BufNewFile,BufRead *.js :set softtabstop=2 | :set shiftwidth=2 | :set softtabstop=2 | :set expandtab
+:autocmd BufNewFile,BufRead *.c :set softtabstop=4 | :set shiftwidth=4 | :set softtabstop=4 | :set expandtab
+:autocmd BufNewFile,BufRead *.cpp :set softtabstop=4 | :set shiftwidth=4 | :set softtabstop=4 | :set expandtab
+:autocmd BufNewFile,BufRead *.go :set softtabstop=4 | :set shiftwidth=4 | :set softtabstop=4 | :set expandtab
 
 
 " Only do this part when compiled with support for autocommands

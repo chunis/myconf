@@ -1,5 +1,18 @@
 #!/bin/sh
 
+
+ssh () {
+	ssh $*
+
+	if [ $? -eq 255 ]; then
+		ip=$(echo "$*" | awk -F@ '{print $2}' | awk '{print $1}')
+		echo
+		echo "$ip needs to be cleaned up..."
+		ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R "$ip"
+		ssh $*
+	fi
+}
+
 asld ()
 {
 	bsname=${1/.s/}
@@ -93,4 +106,10 @@ j()
 {
        class=${1%%.java}
        javac $1 && java $class
+}
+
+mysh()
+{
+	ip=192.168.1.$2
+	ssh $1@$ip
 }
