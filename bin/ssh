@@ -1,0 +1,11 @@
+#!/bin/sh
+
+/usr/bin/ssh $*
+
+if [ $? -eq 255 ]; then
+	ip=$(echo "$*" | awk -F@ '{print $2}' | awk '{print $1}')
+	echo
+	echo "$ip needs to be cleaned up..."
+	ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R "$ip"
+	/usr/bin/ssh $*
+fi
