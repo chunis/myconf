@@ -3,6 +3,7 @@
 myconf=~/.myconf
 replace_files="myconf bashrc gdbinit gitconfig hgrc vim vimrc xprofile tmux.conf"
 date=`date +%Y%m%d`
+bckdir=~/.myconf-backup-$date
 
 echo "Backup config files and create soft link for them..."
 for f in $replace_files; do
@@ -11,8 +12,9 @@ for f in $replace_files; do
 		rm -f ~/.$f
 	fi
 	if [ -f ~/.$f -o -d ~/.$f ]; then
-		echo mv ~/.$f ~/.$f-$date
-		mv ~/.$f ~/.$f-$date
+		mkdir -p $bckdir
+		echo mv ~/.$f $bckdir
+		mv ~/.$f $bckdir/$f
 	fi
 
 	ln -s $myconf/dot_files/$f ~/.$f
